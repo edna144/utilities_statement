@@ -27,14 +27,14 @@ public class LoadFlats extends DatabaseController {
 		try {
 			while( re.next() ) {
 				int flatID = re.getInt(1);
-				String flatName = re.getString(2);
-				String flatTenant = re.getString(3);
-				int numResidents = re.getInt(4);
-				float flatSpace = re.getFloat(5);
-				float flatRent = re.getFloat(6);
-				LocalDate movingDate = re.getDate(7).toLocalDate();
+				String flatName = re.getString("description");
+				String flatTenant = re.getString("tenant");
+				int numResidents = re.getInt("numResidents");
+				float flatSpace = re.getFloat("space");
+				float flatRent = re.getFloat("rent");
+				LocalDate movingDate = re.getDate("movingDate").toLocalDate();
 				WaterMeterList wmList = new LoadWaterMeters().loadWaterMeters(flatID);
-				boolean isRented = re.getBoolean(8);
+				boolean isRented = re.getBoolean("isRented");
 				
 				Flat flat = new Flat(flatName, flatTenant, numResidents, flatSpace, flatRent, movingDate, wmList, isRented);
 				this.flats.add(flat);

@@ -23,10 +23,10 @@ public class LoadWaterMeters extends DatabaseController {
 		ResultSet co = runQuery(sql);
 		try {					
 			while( co.next() ) {
-				LocalDate date = co.getDate(3).toLocalDate();
-				float valueCold = co.getFloat(4);
-				float valueWarm = co.getFloat(5);
-				float additionalConsumption = co.getFloat(6);
+				LocalDate date = co.getDate("date").toLocalDate();
+				float valueCold = co.getFloat("cold");
+				float valueWarm = co.getFloat("warm");
+				float additionalConsumption = co.getFloat("addCon");
 				WaterMeter wm = new WaterMeter(date, valueCold, valueWarm, additionalConsumption);
 				this.wmList.add(wm);
 			}

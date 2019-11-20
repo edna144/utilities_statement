@@ -699,3 +699,176 @@ Caused by: java.lang.IllegalArgumentException: 1
 	at com.h2database@1.4.200/org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:166)
 	at com.h2database@1.4.200/org.h2.value.ValueDate.parse(ValueDate.java:72)
 	... 26 more
+2019-11-20 10:08:12 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Feld "year" nicht gefunden
+Column "year" not found [42122-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at com.h2database@1.4.200/org.h2.message.DbException.get(DbException.java:205)
+	at com.h2database@1.4.200/org.h2.message.DbException.get(DbException.java:181)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3169)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcResultSet.getDate(JdbcResultSet.java:460)
+	at com.utilities_statement/com.utilities_statement.persistent.LoadWaterMeters.loadWaterMeters(LoadWaterMeters.java:26)
+	at com.utilities_statement/com.utilities_statement.persistent.LoadFlats.loadFlats(LoadFlats.java:36)
+	at com.utilities_statement/com.utilities_statement.client.Main.main(Main.java:27)
+2019-11-20 12:21:03 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]" [50000-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.get(DbException.java:194)
+	at com.h2database@1.4.200/org.h2.message.DbException.convert(DbException.java:347)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at com.h2database@1.4.200/org.h2.engine.Database.getPageStore(Database.java:2659)
+	at com.h2database@1.4.200/org.h2.engine.Database.open(Database.java:675)
+	at com.h2database@1.4.200/org.h2.engine.Database.openDatabase(Database.java:307)
+	at com.h2database@1.4.200/org.h2.engine.Database.<init>(Database.java:301)
+	at com.h2database@1.4.200/org.h2.engine.Engine.openSession(Engine.java:74)
+	at com.h2database@1.4.200/org.h2.engine.Engine.openSession(Engine.java:192)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSession(Engine.java:166)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSession(Engine.java:29)
+	at com.h2database@1.4.200/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at com.h2database@1.4.200/org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.utilities_statement/com.utilities_statement.persistent.DatabaseController.<init>(DatabaseController.java:13)
+	at com.utilities_statement/com.utilities_statement.persistent.LoadFlats.<init>(LoadFlats.java:19)
+	at com.utilities_statement/com.utilities_statement.client.Main.main(Main.java:27)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]" [50000-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 27 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]
+	at com.h2database@1.4.200/org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at com.h2database@1.4.200/org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 21 more
+2019-11-20 12:21:03 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]" [50000-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.get(DbException.java:194)
+	at com.h2database@1.4.200/org.h2.message.DbException.convert(DbException.java:347)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at com.h2database@1.4.200/org.h2.engine.Database.getPageStore(Database.java:2659)
+	at com.h2database@1.4.200/org.h2.engine.Database.open(Database.java:675)
+	at com.h2database@1.4.200/org.h2.engine.Database.openDatabase(Database.java:307)
+	at com.h2database@1.4.200/org.h2.engine.Database.<init>(Database.java:301)
+	at com.h2database@1.4.200/org.h2.engine.Engine.openSession(Engine.java:74)
+	at com.h2database@1.4.200/org.h2.engine.Engine.openSession(Engine.java:192)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSession(Engine.java:166)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSession(Engine.java:29)
+	at com.h2database@1.4.200/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at com.h2database@1.4.200/org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.utilities_statement/com.utilities_statement.persistent.DatabaseController.<init>(DatabaseController.java:13)
+	at com.utilities_statement/com.utilities_statement.persistent.LoadBillItems.<init>(LoadBillItems.java:20)
+	at com.utilities_statement/com.utilities_statement.client.Main.main(Main.java:29)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]" [50000-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 27 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]
+	at com.h2database@1.4.200/org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at com.h2database@1.4.200/org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 21 more
+2019-11-20 12:23:22 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]" [50000-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.get(DbException.java:194)
+	at com.h2database@1.4.200/org.h2.message.DbException.convert(DbException.java:347)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at com.h2database@1.4.200/org.h2.engine.Database.getPageStore(Database.java:2659)
+	at com.h2database@1.4.200/org.h2.engine.Database.open(Database.java:675)
+	at com.h2database@1.4.200/org.h2.engine.Database.openDatabase(Database.java:307)
+	at com.h2database@1.4.200/org.h2.engine.Database.<init>(Database.java:301)
+	at com.h2database@1.4.200/org.h2.engine.Engine.openSession(Engine.java:74)
+	at com.h2database@1.4.200/org.h2.engine.Engine.openSession(Engine.java:192)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSession(Engine.java:166)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSession(Engine.java:29)
+	at com.h2database@1.4.200/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at com.h2database@1.4.200/org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.utilities_statement/com.utilities_statement.persistent.DatabaseController.<init>(DatabaseController.java:13)
+	at com.utilities_statement/com.utilities_statement.persistent.LoadFlats.<init>(LoadFlats.java:19)
+	at com.utilities_statement/com.utilities_statement.client.Main.main(Main.java:27)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]" [50000-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 27 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]
+	at com.h2database@1.4.200/org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at com.h2database@1.4.200/org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 21 more
+2019-11-20 12:23:22 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]" [50000-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.get(DbException.java:194)
+	at com.h2database@1.4.200/org.h2.message.DbException.convert(DbException.java:347)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at com.h2database@1.4.200/org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at com.h2database@1.4.200/org.h2.engine.Database.getPageStore(Database.java:2659)
+	at com.h2database@1.4.200/org.h2.engine.Database.open(Database.java:675)
+	at com.h2database@1.4.200/org.h2.engine.Database.openDatabase(Database.java:307)
+	at com.h2database@1.4.200/org.h2.engine.Database.<init>(Database.java:301)
+	at com.h2database@1.4.200/org.h2.engine.Engine.openSession(Engine.java:74)
+	at com.h2database@1.4.200/org.h2.engine.Engine.openSession(Engine.java:192)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSession(Engine.java:166)
+	at com.h2database@1.4.200/org.h2.engine.Engine.createSession(Engine.java:29)
+	at com.h2database@1.4.200/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at com.h2database@1.4.200/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at com.h2database@1.4.200/org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.utilities_statement/com.utilities_statement.persistent.DatabaseController.<init>(DatabaseController.java:13)
+	at com.utilities_statement/com.utilities_statement.persistent.LoadBillItems.<init>(LoadBillItems.java:20)
+	at com.utilities_statement/com.utilities_statement.client.Main.main(Main.java:29)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]" [50000-200]
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at com.h2database@1.4.200/org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 27 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/fuhrr/eclipse-workspace/utilities-statement/src/main/resources/database/database.mv.db [1.4.200/7]
+	at com.h2database@1.4.200/org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at com.h2database@1.4.200/org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at com.h2database@1.4.200/org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 21 more

@@ -39,6 +39,8 @@ public class Main {
 		//GUI in progress
 		//GUI gui = new GUI();
 		//gui.launchGUI(args);
+		Interface gui = new Interface();
+		gui.start();
 		
 	}
 	

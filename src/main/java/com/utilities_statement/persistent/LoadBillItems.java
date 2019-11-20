@@ -28,8 +28,8 @@ public class LoadBillItems extends DatabaseController {
 		try {
 			while( re.next() ) {
 				Article article = Article.valueOf(re.getString(2));
-				float billValue = re.getFloat(3);
-				BillUnit billUnit = BillUnit.valueOf(re.getString(4));
+				float billValue = re.getFloat("value");
+				BillUnit billUnit = BillUnit.valueOf(re.getString("unit"));
 				
 				BillItem billItem = new BillItem(article, billValue, billUnit, year);
 				this.billItems.add(billItem);

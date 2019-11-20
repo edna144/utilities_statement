@@ -7,6 +7,7 @@ module com.utilities_statement{
 	requires javafx.swing;
 	requires javafx.web;
 	requires java.sql;
+	requires java.desktop;
 	
 	exports com.utilities_statement.client;
 	
